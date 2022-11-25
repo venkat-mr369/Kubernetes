@@ -1,6 +1,6 @@
 ### gcloud commands to create 3 vms for the cluster
 ```bash
-gcloud compute instances create master worker-1 worker-2 --create-disk=auto-delete=yes,boot=yes,image=projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20211115 --zone us-central1-a --machine-type=e2-medium
+gcloud compute instances create mymaster myworker-1 myworker-2 --create-disk=auto-delete=yes,boot=yes,image=projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20221117 --zone asia-south1-a --machine-type=e2-medium
 ```
 
 
@@ -8,15 +8,16 @@ gcloud compute instances create master worker-1 worker-2 --create-disk=auto-dele
 ```bash
 $ adduser username
 #Example
-adduser siva
+adduser venkat
 
 #Add the new user to the sudo group 
 usermod -aG sudo username
 #Example
-usermod -aG sudo siva
+usermod -aG sudo venkat
 
 Switch to newly created user:
-su - username
+#su - username
+su - venkat
 
 #How to Enable SSH Password Authentication
 #To enable SSH password authentication, you must SSH in as root to edit this file:
