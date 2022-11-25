@@ -95,10 +95,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 echo "Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=cgroupfs"" >> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
 systemctl restart kubelet
-
 systemctl daemon-reload
-
-
 
 # Initialising the control-plane node run the below command on the (master node)
 sudo kubeadm init
@@ -106,8 +103,6 @@ sudo kubeadm init
 # If we get error wrt container runtime not running , execute the below commands
 rm /etc/containerd/config.toml
 systemctl restart containerd
-
-
 
 #Set up local kubeconfig:
 mkdir -p $HOME/.kube
