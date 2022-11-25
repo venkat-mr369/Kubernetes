@@ -6,5 +6,5 @@ metadata:
     env: app-dev-ns
 spec:
   containers:
-  - name: cont1
+  - name: urwishcont1
     image: nginx
