@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: new-urwish-rc
 spec:
-  replicas: 2
+  replicas: 4
   template:
     metadata:
       name: new-pod
