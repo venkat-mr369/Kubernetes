@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: label-test-venky
+   labels:
+      environment: dev
+      tier: frontend
+spec:
+   containers:
+   - image: nginx:latest
+     name: urwishc1
