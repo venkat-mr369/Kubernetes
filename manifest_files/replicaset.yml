@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: new-urwish-rs
+spec:
+  selector:
+    matchLabels:
+      env: test
+  replicas: 4 # Actual should match desired
+  template:
+    metadata:
+      name: new-urwish-rs-pod
+      labels:
+        env: test # and condition
+    spec:
+      containers:
+      - image: nginx
+        name: mytestnginx
