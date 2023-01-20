@@ -63,7 +63,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # To install specific version , do refer documentation
 
 sudo apt-mark hold docker-ce
-sudo usermod -aG docker username
+sudo usermod -aG docker venkat
 sudo docker version
 
 ```
