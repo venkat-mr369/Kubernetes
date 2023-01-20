@@ -6,7 +6,7 @@ gcloud compute instances create mymaster myworker-1 myworker-2 --create-disk=aut
 
 ### To Create a User in Ubuntu in all vm's follow the below steps:
 ```bash
-$ adduser username
+#$ adduser username
 #Example
 adduser venkat
 
