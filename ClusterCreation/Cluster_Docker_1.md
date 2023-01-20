@@ -11,7 +11,7 @@ $ adduser username
 adduser venkat
 
 #Add the new user to the sudo group 
-usermod -aG sudo username
+#usermod -aG sudo username
 #Example
 usermod -aG sudo venkat
 
