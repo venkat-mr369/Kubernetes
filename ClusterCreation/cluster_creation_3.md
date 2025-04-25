@@ -89,10 +89,11 @@ Join Worker Nodes (node1, node2)
 ```bash
 kubeadm token create --print-join-command
 ```
+
 output:- (from root user), Generated output execute on node1 and node2 for joining into cluster from root user
-
+```bash
 kubeadm join 10.128.0.9:6443 --token zvv9li.tp4qxxifehlzz4l9 --discovery-token-ca-cert-hash sha256:e03c28af73b531ff11a314eb3147b526b9b59028d96320867f63b82e93882e55
-
+```
 # Verify Cluster from Master
 ```bash
 kubectl get nodes
