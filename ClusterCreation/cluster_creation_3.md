@@ -85,7 +85,7 @@ Alternatively, if you are the root user, you can run:
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml
 ```
 Join Worker Nodes (node1, node2)
-# Run this on the master
+### Run this on the master
 ```bash
 kubeadm token create --print-join-command
 ```
