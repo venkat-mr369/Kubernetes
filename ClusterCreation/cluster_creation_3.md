@@ -1,3 +1,4 @@
+```bash
 gcloud compute instances create ctlplane node1 node2 \
   --machine-type=e2-medium \
   --image-family=ubuntu-2004-lts \
@@ -25,9 +26,10 @@ gcloud compute firewall-rules create allow-ssh \
   --rules=tcp:22 \
   --source-ranges=$(curl -s https://ipv4.icanhazip.com)/32 \
   --target-tags=k8s-node
-
+```
 # You’ll repeat this on all 3 VMs (ctlplane, node1, node2):
 
+```bash
 # 1. Load kernel modules
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
@@ -63,7 +65,7 @@ echo "deb [signed-by=/usr/share/keyrings/k8s.gpg] https://pkgs.k8s.io/core:/stab
 sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
-
+```
 ##Initialize Cluster on master/control_plane node
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --kubernetes-version=1.29.15
 
