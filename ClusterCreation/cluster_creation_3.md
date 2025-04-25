@@ -27,7 +27,7 @@ gcloud compute firewall-rules create allow-ssh \
   --source-ranges=$(curl -s https://ipv4.icanhazip.com)/32 \
   --target-tags=k8s-node
 ```
-# You’ll repeat this on all 3 VMs (ctlplane, node1, node2):
+### You’ll repeat this on all 3 VMs (ctlplane, node1, node2):
 
 ```bash
 # 1. Load kernel modules
@@ -66,11 +66,11 @@ sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
-##Initialize Cluster on master/control_plane node
+### Initialize Cluster on master/control_plane node
 ```bash
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --kubernetes-version=1.29.15
 ```
-## To start using your cluster, you need to run the following as a regular user:
+### To start using your cluster, you need to run the following as a regular user:
 ```bash
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -80,7 +80,7 @@ Alternatively, if you are the root user, you can run:
 ```bash
   export KUBECONFIG=/etc/kubernetes/admin.conf
 ```
-## Install Calico CNI
+### Install Calico CNI
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml
 ```
@@ -94,7 +94,7 @@ output:- (from root user), Generated output execute on node1 and node2 for joini
 ```bash
 kubeadm join 10.128.0.9:6443 --token zvv9li.tp4qxxifehlzz4l9 --discovery-token-ca-cert-hash sha256:e03c28af73b531ff11a314eb3147b526b9b59028d96320867f63b82e93882e55
 ```
-# Verify Cluster from Master
+### Verify Cluster from Master
 ```bash
 kubectl get nodes
 ```
