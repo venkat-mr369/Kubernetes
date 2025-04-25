@@ -1,6 +1,6 @@
 ## gcloud commands to create 3 vms for the cluster
 ```bash
-gcloud compute instances create mymaster myworker-1 myworker-2 --create-disk=auto-delete=yes,boot=yes,image=projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20221117 --zone asia-south1-a --machine-type=e2-medium
+gcloud compute instances create mymaster myworker-1 myworker-2 --create-disk=auto-delete=yes,boot=yes,image=projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20240116a --zone asia-south1-a --machine-type=e2-medium
 ```
 
 ## Install Packages ( The following steps must be performed on all three nodes)
