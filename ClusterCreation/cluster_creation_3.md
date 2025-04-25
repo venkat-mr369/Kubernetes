@@ -110,4 +110,7 @@ node2      Ready    <none>          21s     v1.29.15
 gcloud compute instances stop ctlplane node1 node2 --zone=us-central1-a
 ```
 
+```bash
+gcloud compute instances start ctlplane node1 node2 --zone=us-central1-a
+```
 
