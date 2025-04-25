@@ -67,40 +67,43 @@ sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 ##Initialize Cluster on master/control_plane node
+```bash
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --kubernetes-version=1.29.15
-
+```
 ## To start using your cluster, you need to run the following as a regular user:
-
+```bash
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+```
 Alternatively, if you are the root user, you can run:
-
+```bash
   export KUBECONFIG=/etc/kubernetes/admin.conf
-
+```
 ## Install Calico CNI
-
+```bash
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml
-
+```
 Join Worker Nodes (node1, node2)
 # Run this on the master
+```bash
 kubeadm token create --print-join-command
-
+```
 output:- (from root user), Generated output execute on node1 and node2 for joining into cluster from root user
 
 kubeadm join 10.128.0.9:6443 --token zvv9li.tp4qxxifehlzz4l9 --discovery-token-ca-cert-hash sha256:e03c28af73b531ff11a314eb3147b526b9b59028d96320867f63b82e93882e55
 
 # Verify Cluster from Master
-
+```bash
 kubectl get nodes
-
+```
+```bash
 gcpuser@ctlplane:~$ kubectl get nodes
 NAME       STATUS   ROLES           AGE     VERSION
 ctlplane   Ready    control-plane   7m25s   v1.29.15
 node1      Ready    <none>          119s    v1.29.15
 node2      Ready    <none>          21s     v1.29.15
-
+```
 
 
 
